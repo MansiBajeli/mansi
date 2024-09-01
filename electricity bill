@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std;
+class bill{
+    private:
+    string name;
+    float units;
+    float charge;
+
+    public:
+    void setname(string n){
+        name=n;
+    }
+    string getname(){
+        return name;
+    }
+    void setunits(float u){
+        units=u;
+    }
+    float getunits(){
+        return units;
+    }
+    int calculatecharge(){
+        if(units<=100){
+            charge=(units*0.60)+50;
+        }
+        else if(units<=300){
+            units=units-100;
+            charge=(units*0.80)+60+50;
+        }
+        else{
+            units=units-300;
+            charge=220+(units*0.90)+50;
+            charge=charge+((charge*15)/100);
+        }
+        return charge;
+    }
+    void setcharge(float c){
+        charge=c;
+
+    }
+    float getcharge(){
+        return charge;
+    }
+};
+
+int main(){
+    string name;
+    cout<<"enter name";
+    cin>>name;
+    int units;
+    cout<<"enter the units";
+    cin>>units;
+    bill d1;
+    d1.setname(name);
+    cout<<"name:";
+    cout<<d1.getname()<<endl;
+    d1.setunits(units);
+    cout<<"unts:";
+    cout<<d1.getunits()<<endl;
+    cout<<"total bill:";
+    cout<<d1.calculatecharge();
+return 0;
+}
