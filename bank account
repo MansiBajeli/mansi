@@ -1,0 +1,60 @@
+#include<iostream>
+using namespace std;
+class bankaccount{
+private:
+string name; //name 
+int accno;  //account number
+string toa; //type of account
+float ba; //balance amount
+public:
+void setdetails(string name,int accno,string toa,float ba){
+this->name=name;
+this->accno=accno;
+this->toa=toa;
+this->ba=ba;
+}
+
+void withdrawl(int wa){
+    if(wa>ba){
+        cout<<"can't withdrawl"<<endl;
+    }
+    else{
+        ba=ba-wa;
+    }
+    
+}
+void deposit(int da){
+   
+   ba=da+ba;
+}
+void display(){
+    cout<<"name:"<<name<<endl;
+    cout<<"balance amount:"<<ba;
+}
+};
+int main(){
+    string name;
+int accno;
+string toa;
+float ba;
+cout<<"name:";
+cin>>name;
+cout<<"accno:";
+cin>>accno;
+cout<<"toa:";
+cin>>toa;
+cout<<"balance amount";
+cin>>ba;
+int wa;
+int da;
+cout<<"deposit ammount:";
+cin>>da;
+cout<<"withdrawl amount";
+cin>>wa;
+bankaccount b1;
+b1.setdetails(name,accno,toa,ba);
+b1.deposit(da);
+b1.withdrawl(wa);
+b1.display();
+return 0;
+}
