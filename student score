@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+class student{
+private:
+int score[5];
+public:
+void input(){
+ cout<<"enter the five score";
+for(int i=0;i<5;i++){
+    cin>>score[i];
+}    
+}
+int calculatetotalscore(){
+    int total=0;
+    for(int i=0;i<5;i++){
+        total=total+score[i];
+    }
+    
+    return total;
+}
+};
+int main(){
+    int totalscore;
+    student s1[5];
+     for(int i=0;i<5;i++){
+        s1[i].input();
+     }
+     int annascore=s1[0].calculatetotalscore(); // total score of anna
+     int count=0;
+      for(int i=1;i<5;i++){  //count how many students scored higher than anna 
+      totalscore=s1[i].calculatetotalscore();
+      if(totalscore>annascore)
+      count++;
+      }
+     cout<<count;
+    return 0;
+}
