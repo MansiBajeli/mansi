@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+class hotel{
+private:
+int rno;
+string name;
+float tarrif;
+int nod;
+int calculate(){
+    for(int i=0;i<3;i++){
+    int totalamount=0;
+    totalamount=nod*tarrif;
+    if(totalamount>11000){
+        totalamount=1.02*nod*tarrif;
+    }
+    return totalamount;
+    }
+    return 0;
+}
+
+public:
+void checkin(string n,int rn,int d,float t){
+     name=n;
+     rno=rn;
+     nod=d;
+     tarrif=t;
+    
+}
+ void checkout(){
+    
+cout<<"name:";
+ cout<<name<<endl;
+ cout<<"rno:";
+ cout<<rno<<endl;
+ cout<<"nod:";
+ cout<<nod<<endl;
+ cout<<"tarrif:";
+ cout<<tarrif<<endl;
+ cout<<"amount:";
+ cout<<calculate()<<endl;
+ }
+ 
+};
+int main(){
+    int rno,nod;
+    string name;
+    float tarrif;
+    hotel d1[3];
+    for(int i=0;i<3;i++){
+    cout<<"name:";
+    cin>>name;
+    cout<<"rno:";
+    cin>>rno;
+    cout<<"nod:";
+    cin>>nod;
+    cout<<"tarrif:";
+    cin>>tarrif;
+     
+    d1[i].checkin(name,rno,nod,tarrif);
+    }
+    cout<<"details"<<endl;
+    for(int i=0;i<3;i++){
+    
+    d1[i].checkout();
+    }
+    return 0;
+  }
