@@ -1,0 +1,87 @@
+#include<iostream>
+using namespace std;
+class invoice 
+{
+private:
+string pn;
+string pd;
+int quan;
+double ppt;
+public:
+invoice(string pn,string pd,int quan,int ppt)
+{
+    this->pn=pn;
+    this->pd=pd;
+    this->quan=quan;
+    this->ppt=ppt;
+}
+void setpn(string pn){
+   this->pn=pn;
+}
+void setpd(string pd){
+    this->pd=pd;
+}
+void setquan(int quan)
+{ 
+    if(quan<0){
+        quan=0;
+    }
+    this->quan=quan;
+}
+void setppt(double ppt){
+     if(ppt<0){
+        ppt=0;
+    }
+    this->ppt=ppt;
+}
+string getpn(){
+    return pn;
+}
+
+string getpd(){
+    return pd;
+}
+
+int getquan(){
+    
+    return quan;
+}
+
+double getppt(){
+
+   
+    return ppt;
+}
+double getinvoiceamount(){
+    double amount;
+    amount=quan*ppt;
+    return amount;
+}
+};
+int main(){
+    string pn,pd;
+    int quan,ppt;
+
+    invoice d1( pn, pd, quan, ppt);
+    
+
+    cout<<"partnumber:"<<endl;
+    cin>>pn;
+    cout<<"partdescription:"<<endl;
+    cin>>pd;
+    cout<<"quantity:"<<endl;
+    cin>>quan;
+    cout<<"price per item:"<<endl;
+    cin>>ppt;
+    d1.setpn(pn);
+    d1.setpd(pd);
+    d1.setquan(quan);
+    d1.setppt(ppt);
+    cout<<d1.getpn()<<endl;
+    cout<<d1.getpd()<<endl;
+    cout<<d1.getquan()<<endl;
+    cout<<d1.getppt()<<endl;
+    cout<<d1.getinvoiceamount();
+return 0;
+
+}
