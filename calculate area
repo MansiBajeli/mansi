@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+class area{
+ public:
+    double calculatearea(double side){
+        return side*side;
+    }
+    double calculatearea(double l,double b){
+        return l*b;
+    }
+    double calculatearea(double base,float h){
+        return (base*h)/2;
+    }
+ };
+
+int main(){
+    area d1;
+    cout<<"area od square"<<d1.calculatearea(4.0d)<<endl;
+    cout<<"area of rectangle"<<d1.calculatearea(2.0d,5.0d)<<endl;
+    cout<<"area of triangle"<<d1.calculatearea(2.0d,5.0f)<<endl;
+    return 0;
+}
