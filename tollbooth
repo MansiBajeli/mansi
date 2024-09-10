@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+class tollbooth{
+private:
+ unsigned int tcar;
+double tamou;
+public:
+tollbooth(int tcar,double tamou){
+    this->tcar=0;
+    this->tamou=0;
+}
+void payingcar(){
+    tcar=tcar+1;
+ tamou=tamou+0.5;
+}
+void nonpaycar(){
+    tcar=tcar+1;
+}
+void display(){
+    cout<<"total car:"<<tcar<<endl;
+    cout<<"total amount:"<<tamou;
+}
+};
+int main(){
+    int tcar;
+    double tamou;
+    tollbooth b(tcar,tamou);
+    int ch;
+    cout<<"press 'p'(112) for paying car"<<endl<<"press 'n'(110) for non paying car"<< endl<<"press ESC(27) to exit and display total"<<endl;
+    while(true)
+    {
+        cin>>ch;
+        if(ch==27){
+            break;
+        }
+        else if(ch==112){
+            b.payingcar();
+            cout<<"paying car counted"<<endl;
+        }
+         else if(ch==110){
+            b.nonpaycar();
+            cout<<"nonpaying car counted"<<endl;
+        }
+         else{
+            cout<<"invalit choice"<<endl;
+         }
+    }
+    b.display();
+
+}
