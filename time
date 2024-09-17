@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+class time{
+    private:
+int hours;
+int minutes;
+int seconds;
+public:
+time():hours(0),minutes(0),seconds(0)
+{
+
+}
+time(int h,int m,int s){
+    hours=h;
+    minutes=m;
+    seconds=s;
+}
+
+void add(time d1,time d2){
+    seconds=d1.seconds+d2.seconds;
+    if(seconds>=60){
+      minutes=minutes+seconds/60;
+      seconds=seconds%60;
+    }
+     minutes=minutes+d1.minutes+d2.minutes;
+    if(minutes>=60){
+        hours=hours+minutes/60;
+        minutes=minutes%60;
+    }
+    hours=hours+d1.hours+d2.hours;
+    cout<<hours<<":"<<minutes<<":"<<seconds;
+}
+
+};
+int main(){
+    time a(13,43,62);
+    time b(11,42,63);
+    time d3;
+   d3.add(a,b);
+   return 0;
+}
