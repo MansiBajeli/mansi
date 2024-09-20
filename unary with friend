@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+class unary{
+    private:
+    int data;
+    public:
+    unary(){  
+    }
+    unary(int d){
+        data=d;
+    }
+    friend  unary operator-(unary&);
+    friend  unary operator++(unary&);
+    friend  unary operator++(unary&,int nouse);
+    friend  unary operator--(unary&);
+    friend  unary operator--(unary&,int nouse);
+
+ void display(){
+    cout<<data<<endl;
+ }
+};
+unary operator-(unary &d1){
+    return unary(-d1.data);
+}
+unary operator++(unary &d1){
+    return(++(d1.data));
+}
+unary operator++(unary &d1,int nouse){
+    return((d1.data)++);
+}
+unary operator--(unary &d1){
+    return(--(d1.data));
+}
+unary operator--(unary &d1,int nouse){
+    return((d1.data)--);
+}
+int main(){
+    unary d1(4);
+  unary d2= (-d1);
+  d2.display();
+   cout<<endl;
+    (++d1);
+    d1.display();
+     cout<<endl;
+    (d1++);
+    d1.display();
+     cout<<endl;
+    (--d1);
+    d1.display();
+     cout<<endl;
+    (d1--);
+    d1.display();
+
+}
