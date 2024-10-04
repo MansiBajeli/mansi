@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+class abc{
+    int id;
+    string name;
+    public:
+    friend ostream& operator<<(ostream &show,abc&);
+    friend istream& operator>>(istream &input,abc&);
+
+};
+ostream& operator<<(ostream &show,abc &d1){
+    cout<<"ID-";
+    show<<d1.id;
+    cout<<endl;
+    cout<<"name-";
+    show<<d1.name;
+    return show;
+}
+istream& operator>>(istream &input,abc &d2){
+    cout<<"enter your id";
+    input>>d2.id;
+    cout<<"enter your name";
+    input>>d2.name;
+    return input;
+}
+
+int main(){
+    abc d;
+    cin>>d;
+    cout<<endl;
+    cout<<d;
+    return 0;
+}
