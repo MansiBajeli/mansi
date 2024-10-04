@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+class Base {
+private:
+    int privateData;
+protected:
+    int protectedData;  
+public:
+    int publicData;
+    Base() {
+        privateData = 30;
+        protectedData = 40;
+        publicData = 50;
+    }
+    void showBaseData() {
+        cout << "Private Data: " << privateData << endl;
+        cout << "Protected Data: " << protectedData << endl;
+        cout << "Public Data: " << publicData << endl;
+    }
+};
+class DerivedPublic : public Base {
+public:
+    void showDerivedPublic() {
+        cout << "Protected Data: " << protectedData << endl;
+        cout << "Public Data: " << publicData << endl;
+    }
+};
+class DerivedProtected : protected Base {
+public:
+    void showDerivedProtected() {
+        cout << "Protected Data: " << protectedData << endl;
+        cout << "Public Data: " << publicData << endl;
+    }
+};
+class DerivedPrivate : private Base {
+public:
+    void showDerivedPrivate() {
+        cout << "Protected Data: " << protectedData << endl;
+        cout << "Public Data: " << publicData << endl;
+    }
+};
+int main() {
+    DerivedPublic d1;
+    d1.showDerivedPublic();
+    DerivedProtected d2;
+    d2.showDerivedProtected();
+    DerivedPrivate d3;
+    d3.showDerivedPrivate();
+    return 0;
+}
