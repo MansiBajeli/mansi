@@ -1,0 +1,82 @@
+#include<iostream>
+using namespace std;
+class A{
+    int count1=0;
+    public:
+ void func(int &v){
+v=v*2;
+count1++;
+ }
+int getcount1(){
+    return count1;
+ }
+};
+class B{
+    int count2=0;
+    public:
+    void func(int &v){
+        v=v*3;
+        count2++;
+    }
+    int getcount2(){
+    return count2;
+ }
+};
+class C{
+    int count3=0;
+    public:
+void func(int &v){
+    v=v*5;
+    count3++;
+}
+int getcount3(){
+    return count3;
+ }
+};
+class E{
+    int count4=0;
+    public:
+    void func(int &v){
+    v=v*7;
+    count4++;
+}
+int getcount4(){
+    return count4;
+ }
+};
+class D:public A ,public B,public C,public E{
+private:
+int val;
+public:
+D():val(1){}
+void update_val(int new_val) {
+        while (new_val % 2 == 0) {
+            A::func(val);    
+            new_val /= 2;      
+        }
+        while (new_val % 3 == 0) {
+            B::func(val);       
+            new_val /= 3;               
+        }
+        while (new_val % 5 == 0) {
+            C::func(val);     
+            new_val /= 5;            
+        }
+        while (new_val % 7 == 0) {
+            E::func(val);     
+            new_val /= 7;            
+        }
+    }
+    void print_counts(){
+        cout << "A's func called " << getcount1() << " times" << endl;
+        cout << "B's func called " << getcount2() << " times" << endl;
+        cout << "C's func called " << getcount3() << " times" << endl;
+        cout << "E's func called " << getcount4() << " times" << endl;
+    }
+};
+int main(){
+    int new_value=60;
+    D f;
+    f.update_val(new_value);
+    f.print_counts();
+}
