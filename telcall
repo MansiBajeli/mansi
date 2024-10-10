@@ -1,0 +1,46 @@
+#include<iostream>
+using namespace std;
+class telcall{
+    string pno;
+    string sname;
+    int n;
+    float amt;
+    public:
+    telcall( string pno,string sname,int n){
+        this->pno=pno;
+        this->sname=sname;
+        this->n=n;
+    }
+    int compute(){
+        if(n<=100){
+            amt=500;
+        }
+        else if(n<=200){
+            n=n-100;
+            amt=(n*1.00)+500;
+        }
+        else if(n<=300){
+            n=n-200;
+            amt=(100*1.00)+(n*1.20)+500;
+        }
+        else {
+            n=n-300;
+            amt=(100*1.20)+(100*1.00)+(n*1.50)+500;
+        }
+      return amt;
+    }
+   float getamt(){
+    return amt;
+   }
+   void display(){
+    cout<<"phn no:"<<pno<<endl;
+    cout<<"name:"<<sname<<endl;
+    cout<<"no of user:"<<n<<endl;
+    cout<<"amount:"<<amt<<endl;
+   }
+};
+int main(){
+    telcall t("1234567892","mansi",300);
+    t.compute();
+    t.display();
+}
